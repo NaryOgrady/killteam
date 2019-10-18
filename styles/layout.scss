@@ -1,0 +1,18 @@
+@import './vars';
+
+.page-host {
+  height: 100%;
+}
+
+.main-menu {
+  background-color: $medium-grey;
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+}
+
+.content {
+  float: right;
+  height: 100%;
+  width: calc(100% - 300px);
+}

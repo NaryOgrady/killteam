@@ -1,10 +1,13 @@
 import { PLATFORM } from 'aurelia-pal';
 
 export const appConfig = {
-  title: 'Master Tools',
+  title: 'Killteam Manager',
   routes: [
     {
-      route: '', name: 'home', moduleId: PLATFORM.moduleName('home/home'), nav: true, title: 'Welcome'
+      route: ['', 'teams'], name: 'teams', moduleId: PLATFORM.moduleName('teams/teams'), nav: true, title: 'Teams', settings: { icon: 'address-book-o' }
+    },
+    {
+      route: 'tactics', name: 'tactics', moduleId: PLATFORM.moduleName('tactics/tactics'), nav: true, title: 'Tactics', settings: { icon: 'cogs' }
     }
   ]
 };

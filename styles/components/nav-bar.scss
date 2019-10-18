@@ -1,4 +1,46 @@
-.nav-wrapper {
-  max-width: 1200px;
-  margin: auto;
+@import '../vars';
+
+.nav {
+  &-wrapper {
+    padding-top: 20px;
+  }
+
+  &-title {
+    color: $white;
+    font-size: 1.7em;
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  &-logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+  }
+
+  .menu {
+    color: $white;
+
+    &-item {
+      i {
+        color: $orange;
+        font-size: 1.2em;
+        margin-right: 15px;
+      }
+    }
+
+    &-link {
+      align-items: center;
+      color: $light-grey;
+      display: flex;
+      height: 46px;
+      padding: 0 30px;
+      text-align: center;
+
+      &.active {
+        background-color: $dark-grey;
+        color: $white;
+      }
+    }
+  }
 }

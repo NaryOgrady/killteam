@@ -7,8 +7,8 @@ describe('the Home component', () => {
 
   beforeEach(async () => {
     component = StageComponent
-      .withResources(PLATFORM.moduleName('home/home'))
-      .inView('<home></home>');
+      .withResources(PLATFORM.moduleName('teams/teams'))
+      .inView('<teams></teams>');
     await component.create(bootstrap);
   });
 

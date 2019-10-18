@@ -6,11 +6,11 @@
 
 @import '../node_modules/materialize-css/sass/components/global';
 @import '../node_modules/materialize-css/sass/components/typography';
-@import '../node_modules/materialize-css/sass/components/navbar';
 @import '../node_modules/materialize-css/sass/components/buttons';
 
 /* Custom */
 @import 'vars';
 @import 'base';
+@import 'layout';
 @import 'utils';
 @import 'components/nav-bar';

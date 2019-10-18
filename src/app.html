@@ -1,7 +1,11 @@
 <template>
   <div class="page-host">
-    <nav-bar router.bind="router"></nav-bar>
+    <div class="main-menu">
+      <nav-bar router.bind="router"></nav-bar>
+    </div>
+    <div class="content">
+      <router-view></router-view>
+    </div>
 
-    <router-view></router-view>
   </div>
 </template>

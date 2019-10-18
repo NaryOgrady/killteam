@@ -1,10 +1,14 @@
 <template bindable="router"> 
   <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">${router.title}</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li repeat.for="row of router.navigation">
-          <a href.bind="row.href" class="nav-link">${row.title}</a>
+    <div class="nav nav-wrapper">
+      <h1 class="nav-title">${ router.title }</h1>
+      <img class="nav-logo" src="../../../images/kt_logo.png" alt="logo">
+      <ul class="menu">
+        <li repeat.for="nav of router.navigation" class="menu-item">
+          <a href.bind="nav.href" class="menu-link ${nav.isActive ? 'active' : ''}">
+            <i class="fa fa-${nav.settings.icon}" aria-hidden="true"></i>
+            ${ nav.title }
+          </a>
         </li>
       </ul>
     </div>

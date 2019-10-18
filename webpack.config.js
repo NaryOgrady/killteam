@@ -42,19 +42,13 @@ module.exports = function webpackConfig(server) {
     },
     module: {
       rules: [
-        {
-          test: /\.html$/i,
-          loader: 'html-loader'
-        },
-        {
-          test: /\.scss$/i,
-          use: ['style-loader', ...cssRules, 'sass-loader']
-        },
-        {
-          test: /\.js$/i,
-          loader: 'babel-loader',
-          exclude: nodeModulesDir
-        }
+        { test: /\.html$/i, loader: 'html-loader' },
+        { test: /\.scss$/i, use: ['style-loader', ...cssRules, 'sass-loader'] },
+        { test: /\.js$/i, loader: 'babel-loader', exclude: nodeModulesDir },
+        { test: /\.(png|jpg|gif)$/i, use: [{ loader: 'url-loader', options: { limit: 8192 } }] },
+        { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
+        { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff' } },
+        { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'file-loader' }
       ]
     },
     plugins: [

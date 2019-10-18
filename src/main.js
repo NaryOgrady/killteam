@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import '../styles/styles.scss';
+import '../node_modules/font-awesome/scss/font-awesome.scss';
 import * as Bluebird from 'bluebird';
 import { PLATFORM } from 'aurelia-pal';
 

@@ -1,4 +1,4 @@
-export class Home {
+export class Teams {
   constructor() {
     this.msg = 'msg';
   }
