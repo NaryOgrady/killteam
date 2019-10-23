@@ -1,0 +1,11 @@
+.btn {
+  background-color: $orange;
+
+  &:hover {
+    background-color: $light-orange;
+  }
+
+  i {
+    font-size: .8rem;
+  }
+}

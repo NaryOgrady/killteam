@@ -2,7 +2,7 @@ import { StageComponent } from 'aurelia-testing';
 import { bootstrap } from 'aurelia-bootstrapper';
 import { PLATFORM } from 'aurelia-pal';
 
-describe('the Home component', () => {
+describe('the Teams component', () => {
   let component;
 
   beforeEach(async () => {
@@ -12,15 +12,10 @@ describe('the Home component', () => {
     await component.create(bootstrap);
   });
 
-  it('should render the correct header', () => {
-    const travelHeader = document.querySelector('h3');
-    expect(travelHeader.innerHTML).toBe('Travel Simulator');
-  });
-
   describe('contains a button', () => {
     it('with the right text', () => {
-      const travelButton = document.querySelector('button');
-      expect(travelButton.innerHTML).toBe('Generate Travel');
+      const button = document.querySelector('button');
+      expect(button.textContent.trim()).toBe('New Team');
     });
   });
 

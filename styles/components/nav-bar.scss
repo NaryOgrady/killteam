@@ -6,7 +6,7 @@
   }
 
   &-title {
-    color: $white;
+    color: $pure-white;
     font-size: 1.7em;
     margin: 0 0 20px;
     text-align: center;
@@ -19,7 +19,7 @@
   }
 
   .menu {
-    color: $white;
+    color: $pure-white;
 
     &-item {
       i {
@@ -31,7 +31,7 @@
 
     &-link {
       align-items: center;
-      color: $light-grey;
+      color: $almost-white;
       display: flex;
       height: 46px;
       padding: 0 30px;
@@ -39,7 +39,7 @@
 
       &.active {
         background-color: $dark-grey;
-        color: $white;
+        color: $pure-white;
       }
     }
   }
