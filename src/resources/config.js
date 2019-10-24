@@ -10,6 +10,9 @@ export const appConfig = {
       route: 'tactics', name: 'tactics', moduleId: PLATFORM.moduleName('tactics/tactics'), nav: true, title: 'Tactics', settings: { icon: 'cogs' }
     },
     {
+      route: 'datasheets', name: 'datasheets', moduleId: PLATFORM.moduleName('tactics/tactics'), nav: true, title: 'Data Sheets', settings: { icon: 'address-card-o' }
+    },
+    {
       route: 'teams/new', name: 'new-team', moduleId: PLATFORM.moduleName('teams/new-team'), nav: false, title: 'New Team'
     }
   ]

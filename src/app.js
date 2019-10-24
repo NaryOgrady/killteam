@@ -6,6 +6,7 @@ export class App {
   }
 
   configureRouter(config, router) {
+    config.options.pushState = true;
     config.title = appConfig.title;
     config.map(appConfig.routes);
 
