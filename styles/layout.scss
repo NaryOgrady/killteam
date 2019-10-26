@@ -22,3 +22,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+@media all and (max-width: 1360px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
