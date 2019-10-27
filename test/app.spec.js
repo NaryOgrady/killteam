@@ -4,6 +4,7 @@ import { appConfig } from 'resources/config';
 class RouterStub {
   constructor() {
     this.routes = null;
+    this.options = {};
   }
 
   configure(handler) {

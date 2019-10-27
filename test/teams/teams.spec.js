@@ -14,7 +14,7 @@ describe('the Teams component', () => {
 
   describe('contains a button', () => {
     it('with the right text', () => {
-      const button = document.querySelector('button');
+      const button = document.getElementById('new_team-button');
       expect(button.textContent.trim()).toBe('New Team');
     });
   });

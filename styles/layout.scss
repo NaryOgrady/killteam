@@ -23,6 +23,16 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
 @media all and (max-width: 1360px) {
   .container {
     grid-template-columns: 1fr 1fr;

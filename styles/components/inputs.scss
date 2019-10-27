@@ -1,0 +1,50 @@
+.text-input {
+  background-color: $light-grey;
+  border: none;
+  border-bottom: 1px solid $orange;
+  color: $almost-white;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+kt-select {
+  color: $almost-white;
+  display: inline;
+  cursor: pointer;
+
+  .select {
+    &-container {
+      position: relative;
+    }
+
+    &-list {
+      border: 1px solid $orange;
+      display: inline-flex;
+      flex-direction: column;
+      height: 24px;
+      overflow: hidden;
+
+      li {
+        height: 30px;
+      }
+
+      li:hover {
+        background-color: $medium-grey;
+      }
+
+      &.open {
+        height: unset;
+      }
+    }
+
+    &-icon {
+      bottom: 3px;
+      color: $orange;
+      font-size: .9em;
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
