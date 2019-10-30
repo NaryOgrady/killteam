@@ -24,6 +24,8 @@ module.exports = {
     'no-param-reassign': ['warn', { 'props': false }],
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
-    'arrow-parens': 'off'
+    'arrow-parens': 'off',
+    'no-plusplus': 'off',
+    'lines-between-class-members': 'off'
   }
 };

@@ -1,10 +1,10 @@
 <template>
-  <div class="select-container inline" click.delegate="handleClick()">
-    <ul class="select-list noselect ${css}" >
-      <li>Faction...</li>
-      <li>Tyranids</li>
-      <li>Space Wolves</li>
-    </ul>
-    <i class="select-icon fa fa-chevron-down" aria-hidden="true"></i>
+  <div class="select-container inline">
+    <div class="select-list noselect ${css}">
+      <div repeat.for='option of collection' class="select-option" click.delegate="handleClick(option.id)">
+        ${option.label}
+      </div>
+    </div>
+    <i class="select-icon fa fa-chevron-down" aria-hidden="true" click.delegate="handleClick(selectedValue.id)"></i>
     </div>
 </template>

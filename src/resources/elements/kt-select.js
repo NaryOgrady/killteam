@@ -1,10 +1,29 @@
+import { bindable, bindingMode } from 'aurelia-framework';
 
 export class KtSelect {
-  constructor() {
-    this.css = 'close';
+  @bindable collection;
+  @bindable onChange;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) selectedValue;
+  css = 'close';
+
+  bind() {
+    if (!this.collection || this.collection.length === 0) {
+      throw new Error('Invalid collection passed to kt-select');
+    }
   }
 
-  handleClick() {
+  handleClick(id) {
     this.css = this.css === 'close' ? 'open' : 'close';
+    if (id !== -1) {
+      if (!this.selectedValue) {
+        this.collection.shift();
+      }
+      this.selectedValue = this.collection.find(element => element.id === id);
+      const selectedIndex = this.collection.indexOf(this.selectedValue);
+      if (selectedIndex > 0) {
+        this.collection.splice(selectedIndex, 1);
+        this.collection.unshift(this.selectedValue);
+      }
+    }
   }
 }

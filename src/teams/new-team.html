@@ -1,8 +1,10 @@
 <template>
   <form>
     <div>
-      <input class="new_team-name text-input margin-right-30px" type="text" placeholder="New team name">
-      <kt-select></kt-select>
+      <input id="kt-faction-name" class="new_team-name text-input margin-right-30px" type="text" placeholder="New team name">
+      <kt-select id="kt-faction-select" class="margin-right-30px" selected-value.bind="selectedFaction" collection.bind="factionOptions"></kt-select>
+      <kt-select id="kt-subfaction-select" collection.bind="subFactionOptions"></kt-select>
+
     </div>
   </form>
 </template>

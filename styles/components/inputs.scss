@@ -3,6 +3,7 @@
   border: none;
   border-bottom: 1px solid $orange;
   color: $almost-white;
+  line-height: 30px;
 
   &:focus {
     outline: none;
@@ -23,14 +24,19 @@ kt-select {
       border: 1px solid $orange;
       display: inline-flex;
       flex-direction: column;
-      height: 24px;
+      height: 35px;
       overflow: hidden;
 
-      li {
-        height: 30px;
+      div {
+        line-height: 35px;
+        padding: 0 25px 0 5px;
       }
 
-      li:hover {
+      .select-default {
+        border-bottom: 1px solid $almost-white;
+      }
+
+      .select-option:hover {
         background-color: $medium-grey;
       }
 
