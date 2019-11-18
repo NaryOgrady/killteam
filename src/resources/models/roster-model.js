@@ -1,21 +1,4 @@
-import { PLATFORM } from 'aurelia-pal';
-
-export const appConfig = {
-  title: 'Killteam Manager',
-  routes: [
-    {
-      route: ['', 'teams'], name: 'teams', moduleId: PLATFORM.moduleName('teams/teams'), nav: true, title: 'Teams', settings: { icon: 'address-book-o' }
-    },
-    {
-      route: 'tactics', name: 'tactics', moduleId: PLATFORM.moduleName('tactics/tactics'), nav: true, title: 'Tactics', settings: { icon: 'cogs' }
-    },
-    {
-      route: 'datasheets', name: 'datasheets', moduleId: PLATFORM.moduleName('tactics/tactics'), nav: true, title: 'Data Sheets', settings: { icon: 'address-card-o' }
-    },
-    {
-      route: 'teams/new', name: 'new-team', moduleId: PLATFORM.moduleName('teams/new-team'), nav: false, title: 'New Team'
-    }
-  ],
+const data = {
   factions: [
     { id: -1, label: 'Choose faction' },
     { id: 0, label: 'Tyranids' },
@@ -85,7 +68,16 @@ export const appConfig = {
         attacks: 1,
         leadership: 5,
         save: 6,
-        max: 0
+        max: 0,
+        wargear: {
+          weaponSlots: [
+            {
+              selected: 0,
+              options: [0, 1, 2]
+            }
+          ],
+          additionalOptions: [3, 4]
+        }
       }
     ]
   },
@@ -134,3 +126,16 @@ export const appConfig = {
     ]
   }
 };
+
+function enhance(dataObject) {
+  return target => {
+    Object.assign(target.prototype, dataObject);
+  };
+}
+
+@enhance(data)
+export class RosterModel {
+  constructor() {
+    this.data = data;
+  }
+}

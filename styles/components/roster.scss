@@ -1,0 +1,26 @@
+.unit_card {
+  background-color: $dark-grey;
+  border-radius: 4px;
+  color: $pure-white;
+  position: relative;
+  width: 92%;
+  border: 1px solid $orange;
+
+  &-name {
+    font-size: 1.3em;
+    margin-top: 0;
+    padding: 10px;
+  }
+
+  &-table {
+    table-layout: fixed;
+
+    thead {
+      background-color: $orange;
+    }
+
+    th, td {
+      border-radius: 0;
+    }
+  }
+}

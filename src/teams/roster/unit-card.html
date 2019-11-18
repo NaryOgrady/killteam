@@ -1,0 +1,33 @@
+<template>
+  <h4 class="unit_card-name">${unit.name}</h4>
+  <table class="unit_card-table">
+    <thead>
+      <tr>
+        <th>M</th>
+        <th>WS</th>
+        <th>WB</th>
+        <th>S</th>
+        <th>T</th>
+        <th>W</th>
+        <th>A</th>
+        <th>Ld</th>
+        <th>Sv</th>
+        <th>Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${unit.movement}"</td>
+        <td>${unit.weaponSkill}+</td>
+        <td>${unit.ballisticSkill}+</td>
+        <td>${unit.strength}</td>
+        <td>${unit.toughness}</td>
+        <td>${unit.wounds}</td>
+        <td>${unit.attacks}</td>
+        <td>${unit.leadership}</td>
+        <td>${unit.save}+</td>
+        <td>${unit.max}</td>
+      </tr>
+    </tbody>
+  </table>
+</template>

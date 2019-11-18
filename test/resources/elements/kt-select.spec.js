@@ -30,7 +30,7 @@ describe('the KtSelect component', () => {
     expect(model.onChange).not.toBeUndefined();
     expect(model.css).toBe('close');
     expect(model.selectedValue).not.toBeUndefined();
-  })
+  });
 
   it('creates all the options and displays the correct default option', () => {
     const options = document.getElementsByClassName('select-option');
