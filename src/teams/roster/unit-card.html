@@ -30,4 +30,10 @@
       </tr>
     </tbody>
   </table>
+  <div repeat.for="wargear of unit.wargear.weaponSlots">
+    <kt-select id="kt-wargear-select-${$index}" class="margin-right-30px" 
+      selected-value.bind="wargear.selected" 
+      collection.bind="wargear.options">
+    </kt-select>
+  </div>
 </template>

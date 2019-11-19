@@ -1,11 +1,12 @@
 import { StageComponent } from 'aurelia-testing';
 import { PLATFORM } from 'aurelia-pal';
 import { bootstrap } from 'aurelia-bootstrapper';
-import { appConfig } from 'resources/config';
+import { RosterModel } from 'resources/models/roster-model';
 
 describe('Unit Card component', () => {
   let component;
-  const unit = appConfig.roster.Tyranids[0];
+  const rosterModel = new RosterModel();
+  const unit = rosterModel.getUnitByName('Tyranids', 'Termagant');
 
   beforeEach(async () => {
     component = StageComponent
@@ -19,4 +20,9 @@ describe('Unit Card component', () => {
     const model = component.viewModel;
     expect(model.unit.name).toBe(unit.name);
   });
+
+  afterEach(() => {
+    component.dispose();
+  });
+  // TODO: test wargear select render
 });

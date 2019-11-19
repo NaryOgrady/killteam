@@ -135,7 +135,8 @@ function enhance(dataObject) {
 
 @enhance(data)
 export class RosterModel {
-  constructor() {
-    this.data = data;
+  getUnitByName(faction, unitName) {
+    const roster = this.roster[faction];
+    return roster.find(unit => unit.name === unitName);
   }
 }
