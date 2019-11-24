@@ -1,3 +1,5 @@
+import { enhance } from '../utils/decorators';
+
 const data = {
   wargear: {
     Tyranids: [
@@ -45,6 +47,17 @@ const data = {
   }
 };
 
+@enhance(data)
 export class WargearModel {
-
+  getWargearOptions(unit) {
+    const faction = unit.keywords[0];
+    const wargearOptionsList = unit.wargear.weaponSlots[0].options;
+    const wargearOptions = [];
+    for (let i = 0; i < wargearOptionsList.length; i++) {
+      const wargearIndex = wargearOptionsList[i];
+      const wargear = this.wargear[faction].find(element => element.id === wargearIndex);
+      wargearOptions.push(wargear);
+    }
+    return wargearOptions;
+  }
 }

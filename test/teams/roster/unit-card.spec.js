@@ -20,24 +20,34 @@ describe('Unit Card component', () => {
 
   it('has the correct model', () => {
     const model = component.viewModel;
+
     expect(model.unit.name).toBe(unit.name);
   });
 
   it('renders the wargear options select', () => {
     const wargearSelect = document.getElementsByTagName('kt-select');
+
     expect(wargearSelect.length).toBe(unit.wargear.weaponSlots.length);
   });
 
   it('getWargearOptions return the correct collection', () => {
     const model = component.viewModel;
-    let expectedOptions = WargearModel.getWargearOptions();
+    const wargearOptions = wargearModel.getWargearOptions(unit);
+    const expectedOptionLabels = [];
+    for (let i = 0; i < wargearOptions.length; i++) {
+      const option = wargearOptions[i];
+      const newLabel = {
+        id: option.id,
+        label: option.name
+      };
+      expectedOptionLabels.push(newLabel);
+    }
+    model.setWargearOptions();
 
-    expect(model.getWargearOptions).toBeDefined();
-    expect(model.getWargearOptions()).toEqual(expectedOptions);
+    expect(expectedOptionLabels).toEqual(model.wargearOptionLabels);
   });
 
   afterEach(() => {
     component.dispose();
   });
-  // TODO: test wargear select render
 });

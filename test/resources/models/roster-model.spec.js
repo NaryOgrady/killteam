@@ -20,4 +20,6 @@ describe('the Roster Model', () => {
 
     expect(expectedUnit).toBe(rosterModel.getUnitByName('Tyranids', 'Termagant'));
   });
+
+  // TODO: test that data is coming from model and not from appConfig.
 });

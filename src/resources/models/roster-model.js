@@ -1,3 +1,6 @@
+import { enhance } from '../utils/decorators';
+
+
 const data = {
   factions: [
     { id: -1, label: 'Choose faction' },
@@ -54,7 +57,8 @@ const data = {
             }
           ],
           additionalOptions: [3, 4]
-        }
+        },
+        keywords: ['Tyranids']
       },
       {
         id: 0,
@@ -77,7 +81,8 @@ const data = {
             }
           ],
           additionalOptions: [3, 4]
-        }
+        },
+        keywords: ['Tyranids']
       }
     ]
   },
@@ -126,12 +131,6 @@ const data = {
     ]
   }
 };
-
-function enhance(dataObject) {
-  return target => {
-    Object.assign(target.prototype, dataObject);
-  };
-}
 
 @enhance(data)
 export class RosterModel {
