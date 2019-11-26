@@ -1,15 +1,16 @@
 import { BindingEngine, bindable } from 'aurelia-framework';
-import { appConfig } from '../../resources/config';
+import { RosterModel } from '../../resources/models/roster-model';
 
 export class Roster {
   @bindable faction;
 
   static inject() {
-    return [BindingEngine];
+    return [BindingEngine, RosterModel];
   }
 
-  constructor(bindingEngine) {
+  constructor(bindingEngine, rosterModel) {
     this.bindingEngine = bindingEngine;
+    this.rosterModel = rosterModel;
     this.roster = [];
 
     this.bindingEngine.propertyObserver(this, 'faction')
@@ -17,6 +18,6 @@ export class Roster {
   }
 
   onFactionChange() {
-    this.roster = appConfig.roster[this.faction.label];
+    this.roster = this.rosterModel.getRosterByName(this.faction.label);
   }
 }

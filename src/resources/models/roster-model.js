@@ -138,4 +138,8 @@ export class RosterModel {
     const roster = this.roster[faction];
     return roster.find(unit => unit.name === unitName);
   }
+
+  getRosterByName(faction) {
+    return this.roster[faction];
+  }
 }

@@ -33,7 +33,7 @@ describe('Unit Card component', () => {
   it('getWargearOptions return the correct collection', () => {
     const model = component.viewModel;
     const wargearOptions = wargearModel.getWargearOptions(unit);
-    const expectedOptionLabels = [];
+    const expectedOptionLabels = [{ id: -1, label: 'Select wargear...' }];
     for (let i = 0; i < wargearOptions.length; i++) {
       const option = wargearOptions[i];
       const newLabel = {
@@ -42,9 +42,8 @@ describe('Unit Card component', () => {
       };
       expectedOptionLabels.push(newLabel);
     }
-    model.setWargearOptions();
 
-    expect(expectedOptionLabels).toEqual(model.wargearOptionLabels);
+    expect(expectedOptionLabels).toEqual(model.getWargearOptions());
   });
 
   afterEach(() => {

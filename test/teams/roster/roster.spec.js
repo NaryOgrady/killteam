@@ -2,16 +2,18 @@ import { StageComponent } from 'aurelia-testing';
 import { PLATFORM } from 'aurelia-pal';
 import { bootstrap } from 'aurelia-bootstrapper';
 import { BindingEngine } from 'aurelia-framework';
-import { appConfig } from 'resources/config';
+import { RosterModel } from 'resources/models/roster-model';
 
 describe('the Roster component', () => {
   let component;
+  let rosterModel;
 
   beforeEach(async () => {
     component = StageComponent
       .withResources(PLATFORM.moduleName('teams/roster/roster'))
       .inView('<roster></roster>');
     await component.create(bootstrap);
+    rosterModel = new RosterModel();
   });
 
   it('has the correct view model', () => {
@@ -26,7 +28,7 @@ describe('the Roster component', () => {
     const model = component.viewModel;
     model.faction = { id: 0, label: 'Tyranids' };
     model.onFactionChange();
-    expect(model.roster).toEqual(appConfig.roster.Tyranids);
+    expect(model.roster).toEqual(rosterModel.roster.Tyranids);
   });
 
   it('renders the roster correctly', async () => {
