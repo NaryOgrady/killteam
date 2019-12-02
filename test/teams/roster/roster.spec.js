@@ -26,14 +26,14 @@ describe('the Roster component', () => {
 
   it('loads the correct roster on faction change', () => {
     const model = component.viewModel;
-    model.faction = 0;
+    model.faction = { id: 0, label: 'Tyranids' };
     model.onFactionChange();
     expect(model.roster).toEqual(rosterModel.roster.Tyranids);
   });
 
   it('renders the roster correctly', async () => {
     const model = component.viewModel;
-    model.faction = 0;
+    model.faction = { id: 0, label: 'Tyranids' };
     model.onFactionChange();
     await component.waitForElement('.unit_card');
     const roster = document.getElementsByClassName('unit_card');

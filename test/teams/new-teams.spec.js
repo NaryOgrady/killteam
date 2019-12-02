@@ -41,7 +41,7 @@ describe('the NewTeam component', () => {
 
   it('onFactionChange loads the correct sub faction options', () => {
     const model = component.viewModel;
-    model.selectedFaction = 0;
+    model.selectedFaction = { id: 0, label: 'Tyranids' };
     model.onFactionChange();
     expect(model.subFactionOptions).toEqual(rosterModel.getSubfactions('Tyranids'));
   });

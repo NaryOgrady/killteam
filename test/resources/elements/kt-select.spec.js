@@ -57,7 +57,7 @@ describe('the KtSelect component', () => {
       const model = component.viewModel;
       const expectedValue = collection.find(element => element.id === 1);
       model.handleClick(1);
-      expect(model.selectedValue).toEqual(expectedValue.id);
+      expect(model.selectedValue).toEqual(expectedValue);
     });
 
     it('removes the default option', () => {
@@ -70,11 +70,11 @@ describe('the KtSelect component', () => {
       const model = component.viewModel;
       const expectedValue = collection.find(element => element.id === 1);
       model.handleClick(1);
-      expect(model.collection[0]).toEqual(expectedValue.id);
+      expect(model.collection[0]).toEqual(expectedValue);
     });
   });
 
-  it('rise an exception when missing the on change biding', async () => {
+  it('throw an error when missing the collection binding', async () => {
     const incorrectComponent = mockComponent();
     incorrectComponent.boundTo({ collection, onChange: undefined });
     await incorrectComponent.manuallyHandleLifecycle().create(bootstrap);

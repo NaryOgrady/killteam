@@ -100,9 +100,8 @@ export class RosterModel {
     return roster.find(unit => unit.name === unitName);
   }
 
-  getRoster(factionIndex) {
-    const faction = this.factions.find(element => element.id === factionIndex);
-    const roster = this.roster[faction.label];
+  getRoster(faction) {
+    const roster = this.roster[faction];
     if (!roster) {
       throw new Error('No faction found');
     }

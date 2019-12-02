@@ -19,8 +19,7 @@ export class NewTeam {
   }
 
   onFactionChange() {
-    const faction = this.factionOptions.find(element => element.id === this.selectedFaction);
-    this.subFactionOptions = this.rosterModel.getSubfactions(faction.label);
+    this.subFactionOptions = this.rosterModel.getSubfactions(this.selectedFaction.label);
   }
 
   onSubFactionChange(selectedValue) {
