@@ -2,7 +2,6 @@ import { bindable, bindingMode } from 'aurelia-framework';
 
 export class KtSelect {
   @bindable collection;
-  @bindable onChange;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) selectedValue;
   css = 'close';
 
@@ -18,8 +17,9 @@ export class KtSelect {
       if (!this.selectedValue) {
         this.collection.shift();
       }
-      this.selectedValue = this.collection.find(element => element.id === id);
-      const selectedIndex = this.collection.indexOf(this.selectedValue);
+      this.selectedValue = id;
+      const selectedElement = this.collection.find(element => element.id === id);
+      const selectedIndex = this.collection.indexOf(selectedElement);
       if (selectedIndex > 0) {
         this.collection.splice(selectedIndex, 1);
         this.collection.unshift(this.selectedValue);

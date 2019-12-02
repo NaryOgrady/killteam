@@ -31,9 +31,7 @@
     </tbody>
   </table>
   <div repeat.for="wargear of unit.wargear.weaponSlots">
-    <kt-select id="kt-wargear-select-${$index}" class="margin-right-30px"
-      selected-value.bind="wargear.selected"
-      collection.bind="getWargearOptions()">
-    </kt-select>
+    <kt-select id="kt-faction-select" class="margin-right-30px" selected-value.bind="wargear.selected" collection.bind="getWargearOptions(wargear.options)"></kt-select>
+    <span>test</span>
   </div>
 </template>

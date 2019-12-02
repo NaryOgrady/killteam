@@ -26,6 +26,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'arrow-parens': 'off',
     'no-plusplus': 'off',
-    'lines-between-class-members': 'off'
+    'lines-between-class-members': 'off',
+    'linebreak-style': ['error', 'windows']
   }
 };

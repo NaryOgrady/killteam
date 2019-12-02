@@ -27,7 +27,6 @@ describe('the KtSelect component', () => {
   it('has the correct model', () => {
     const model = component.viewModel;
     expect(model.collection).not.toBeUndefined();
-    expect(model.onChange).not.toBeUndefined();
     expect(model.css).toBe('close');
     expect(model.selectedValue).not.toBeUndefined();
   });
@@ -58,7 +57,7 @@ describe('the KtSelect component', () => {
       const model = component.viewModel;
       const expectedValue = collection.find(element => element.id === 1);
       model.handleClick(1);
-      expect(model.selectedValue).toEqual(expectedValue);
+      expect(model.selectedValue).toEqual(expectedValue.id);
     });
 
     it('removes the default option', () => {
@@ -71,7 +70,7 @@ describe('the KtSelect component', () => {
       const model = component.viewModel;
       const expectedValue = collection.find(element => element.id === 1);
       model.handleClick(1);
-      expect(model.collection[0]).toEqual(expectedValue);
+      expect(model.collection[0]).toEqual(expectedValue.id);
     });
   });
 

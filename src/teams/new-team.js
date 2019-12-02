@@ -1,15 +1,16 @@
 
 import { BindingEngine } from 'aurelia-framework';
-import { appConfig } from '../resources/config';
+import { RosterModel } from '../resources/models/roster-model';
 
 export class NewTeam {
   static inject() {
-    return [BindingEngine];
+    return [BindingEngine, RosterModel];
   }
 
-  constructor(bindingEngine) {
+  constructor(bindingEngine, rosterModel) {
     this.bindingEngine = bindingEngine;
-    this.factionOptions = appConfig.factions;
+    this.rosterModel = rosterModel;
+    this.factionOptions = this.rosterModel.getFactions();
     this.subFactionOptions = [{ id: -1, label: 'Choose sub faction' }];
     this.selectedFaction = null;
 
@@ -18,10 +19,11 @@ export class NewTeam {
   }
 
   onFactionChange() {
-    this.subFactionOptions = appConfig.subFactions[this.selectedFaction.label];
+    const faction = this.factionOptions.find(element => element.id === this.selectedFaction);
+    this.subFactionOptions = this.rosterModel.getSubfactions(faction.label);
   }
 
   onSubFactionChange(selectedValue) {
-    return 0;
+    return;
   }
 }

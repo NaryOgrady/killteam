@@ -9,17 +9,10 @@ export class UnitCard {
     this.wargearModel = wargearModel;
   }
 
-  getWargearOptions() {
-    const wargearOptions = this.wargearModel.getWargearOptions(this.unit);
-    const wargearOptionLabels = [{ id: -1, label: 'Select wargear...' }];
-    for (let i = 0; i < wargearOptions.length; i++) {
-      const option = wargearOptions[i];
-      const newLabel = {
-        id: option.id,
-        label: option.name
-      };
-      wargearOptionLabels.push(newLabel);
-    }
-    return wargearOptionLabels;
+  getWargearOptions(rawOptions) {
+    const wargearOptions = this.wargearModel.getWargearOptions(rawOptions);
+    const wargearLabels = wargearOptions.map(opt => ({ id: opt.id, label: opt.name }));
+    wargearLabels.unshift({ id: -1, label: 'Select wargear' });
+    return wargearLabels;
   }
 }

@@ -18,6 +18,6 @@ export class Roster {
   }
 
   onFactionChange() {
-    this.roster = this.rosterModel.getRosterByName(this.faction.label);
+    this.roster = this.rosterModel.getRoster(this.faction);
   }
 }

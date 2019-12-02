@@ -1,7 +1,9 @@
 import { StageComponent } from 'aurelia-testing';
 import { PLATFORM } from 'aurelia-pal';
 import { bootstrap } from 'aurelia-bootstrapper';
+import {} from 'resources/models/roster-model';
 import { appConfig } from 'resources/config';
+import { RosterModel } from '../../src/resources/models/roster-model';
 
 function mockComponent() {
   const component = StageComponent
@@ -12,19 +14,19 @@ function mockComponent() {
 
 describe('the NewTeam component', () => {
   let component;
+  let rosterModel;
 
   beforeEach(async () => {
     component = mockComponent();
     await component.create(bootstrap);
+    rosterModel = new RosterModel();
   });
 
   it('renders correctly', () => {
     const factionNameInput = document.getElementById('kt-faction-name');
     const factionSelect = document.getElementById('kt-faction-select');
-    const subFactionSelect = document.getElementById('kt-subfaction-select');
     expect(factionNameInput).not.toBe(null);
     expect(factionSelect).not.toBe(null);
-    expect(subFactionSelect).not.toBe(null);
   });
 
   it('has the correct view model', () => {
@@ -39,9 +41,9 @@ describe('the NewTeam component', () => {
 
   it('onFactionChange loads the correct sub faction options', () => {
     const model = component.viewModel;
-    model.selectedFaction = { id: 0, label: 'Tyranids' };
+    model.selectedFaction = 0;
     model.onFactionChange();
-    expect(model.subFactionOptions).toEqual(appConfig.subFactions.Tyranids);
+    expect(model.subFactionOptions).toEqual(rosterModel.getSubfactions('Tyranids'));
   });
 
   afterEach(() => {

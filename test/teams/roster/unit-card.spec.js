@@ -1,4 +1,4 @@
-import { StageComponent } from 'aurelia-testing';
+import { StageComponent, ComponentTester } from 'aurelia-testing';
 import { PLATFORM } from 'aurelia-pal';
 import { bootstrap } from 'aurelia-bootstrapper';
 import { RosterModel } from 'resources/models/roster-model';
@@ -20,30 +20,27 @@ describe('Unit Card component', () => {
 
   it('has the correct model', () => {
     const model = component.viewModel;
-
     expect(model.unit.name).toBe(unit.name);
   });
 
-  it('renders the wargear options select', () => {
-    const wargearSelect = document.getElementsByTagName('kt-select');
-
-    expect(wargearSelect.length).toBe(unit.wargear.weaponSlots.length);
+  it('renders all the wargear selects', async () => {
+    const selects = document.getElementsByTagName('kt-select');
+    expect(selects.length).toBe(unit.wargear.weaponSlots.length);
   });
 
-  it('getWargearOptions return the correct collection', () => {
+  it('selects have the correct options', () => {
     const model = component.viewModel;
-    const wargearOptions = wargearModel.getWargearOptions(unit);
-    const expectedOptionLabels = [{ id: -1, label: 'Select wargear...' }];
-    for (let i = 0; i < wargearOptions.length; i++) {
+    const rawOptions = unit.wargear.weaponSlots[0];
+    const wargearOptions = wargearModel.getWargearOptions(rawOptions);
+    const wargearLabels = model.getWargearOptions(rawOptions);
+    expect(wargearLabels[0].id).toBe(-1);
+    expect(wargearLabels[0].label).toBe('Select wargear');
+    for (let i = 1; i < wargearOptions.length; i++) {
       const option = wargearOptions[i];
-      const newLabel = {
-        id: option.id,
-        label: option.name
-      };
-      expectedOptionLabels.push(newLabel);
+      const label = wargearLabels[i + 1];
+      expect(option.id).toBe(label.id);
+      expect(option.name).toBe(label.label);
     }
-
-    expect(expectedOptionLabels).toEqual(model.getWargearOptions());
   });
 
   afterEach(() => {
