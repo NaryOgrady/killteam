@@ -97,11 +97,12 @@ export class RosterModel {
 
   getUnitByName(faction, unitName) {
     const roster = this.roster[faction];
-    return roster.find(unit => unit.name === unitName);
+    const unit = roster.find(u => u.name === unitName);
+    return JSON.parse(JSON.stringify(unit));
   }
 
   getRoster(faction) {
-    const roster = this.roster[faction];
+    const roster = this.roster[faction].map(unit => JSON.parse(JSON.stringify(unit)));
     if (!roster) {
       throw new Error('No faction found');
     }
