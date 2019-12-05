@@ -102,11 +102,12 @@ export class RosterModel {
   }
 
   getRoster(faction) {
-    const roster = this.roster[faction].map(unit => JSON.parse(JSON.stringify(unit)));
-    if (!roster) {
+    const originalRoster = this.roster[faction];
+    if (!originalRoster) {
       throw new Error('No faction found');
     }
-    return roster;
+    const newRoster = originalRoster.map(unit => JSON.parse(JSON.stringify(unit)));
+    return newRoster;
   }
 
   getFactions() {

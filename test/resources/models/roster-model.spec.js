@@ -13,7 +13,7 @@ describe('the RosterModel class', () => {
       expect(unit.name).toBe('Termagant');
     });
 
-    it('return a copoy of the unit', () => {
+    it('return a copy of the unit', () => {
       const unit1 = rosterModel.getUnitByName('Tyranids', 'Termagant');
       const unit2 = rosterModel.getUnitByName('Tyranids', 'Termagant');
       const expectedName = unit2.name;
@@ -24,7 +24,8 @@ describe('the RosterModel class', () => {
 
   describe('getRoster', () => {
     it('throws an error when no roster found', () => {
-      expect(rosterModel.getRoster.bind(rosterModel)).toThrowError();
+      expect(rosterModel.getRoster.bind(rosterModel)).toThrowError('No faction found');
+      // expect(false).toBe(true);
     });
 
     it('return a copy of the roster array', () => {
