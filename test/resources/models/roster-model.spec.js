@@ -1,10 +1,15 @@
 import { RosterModel } from 'resources/models/roster-model';
+import { WargearModel } from 'resources/models/wargear-model'
 
 describe('the RosterModel class', () => {
   let rosterModel;
+  let wargearModel;
+  let roster;
 
   beforeEach(() => {
     rosterModel = new RosterModel();
+    wargearModel = new WargearModel();
+    roster = rosterModel.getRoster('Tyranids');
   });
 
   describe('getUnitByName function', () => {
@@ -37,10 +42,17 @@ describe('the RosterModel class', () => {
     });
 
     it('does no alter the data objects', () => {
-      const roster = rosterModel.getRoster('Tyranids');
       roster[0].name = 'Test Name';
-      const originalObject = rosterModel.roster.Tyranids[0];
-      expect(originalObject.name).toBe('Termagant');
+      const originalUnit = rosterModel.roster.Tyranids[0];
+      expect(originalUnit.name).toBe('Termagant');
+    });
+
+    it('inserts the correct wargear options', () => {
+      for (let i = 0; i < roster.length; i++) {
+        const unit = roster[0];
+        const expectedWargear = wargearModel.wargear[0];
+        expect(unit.wargear.weaponSlots[0].selected).toBe(expectedWargear);
+      }
     });
   });
 });

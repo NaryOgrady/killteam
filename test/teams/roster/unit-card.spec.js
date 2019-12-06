@@ -31,7 +31,7 @@ describe('Unit Card component', () => {
   it('selects have the correct options', () => {
     const model = component.viewModel;
     const rawOptions = unit.wargear.weaponSlots[0];
-    const wargearOptions = wargearModel.getWargearOptions(rawOptions);
+    const wargearOptions = wargearModel.getWargear(rawOptions);
     const wargearLabels = model.getWargearOptions(rawOptions);
     expect(wargearLabels[0].id).toBe(-1);
     expect(wargearLabels[0].label).toBe('Select wargear');

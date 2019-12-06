@@ -10,7 +10,7 @@ export class UnitCard {
   }
 
   getWargearOptions(rawOptions) {
-    const wargearOptions = this.wargearModel.getWargearOptions(rawOptions);
+    const wargearOptions = this.wargearModel.getWargear(rawOptions);
     const wargearLabels = wargearOptions.map(opt => ({ id: opt.id, label: opt.name }));
     wargearLabels.unshift({ id: -1, label: 'Select wargear' });
     return wargearLabels;

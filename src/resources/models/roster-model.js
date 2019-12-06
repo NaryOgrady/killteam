@@ -106,7 +106,12 @@ export class RosterModel {
     if (!originalRoster) {
       throw new Error('No faction found');
     }
-    const newRoster = originalRoster.map(unit => JSON.parse(JSON.stringify(unit)));
+    const newRoster = originalRoster.map(unit => {
+      const newUnit = JSON.parse(JSON.stringify(unit));
+      const selectedWargearIndex = newUnit.wargear.weaponSlots[0].selected;
+      // TODO: finish this shit
+      return newUnit;
+    });
     return newRoster;
   }
 

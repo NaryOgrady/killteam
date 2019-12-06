@@ -47,7 +47,10 @@ const data = {
 
 @enhance(data)
 export class WargearModel {
-  getWargearOptions(rawOptions) {
+  getWargear(rawOptions) {
+    if (typeof rawOptions === 'number') {
+      return;
+    }
     const wargearOptions = [];
     for (let i = 0; i < rawOptions.length; i++) {
       const wargearIndex = rawOptions[i];
