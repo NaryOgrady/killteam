@@ -15,4 +15,3 @@ export async function configure(aurelia) {
   await aurelia.start();
   await aurelia.setRoot(PLATFORM.moduleName('app'));
 }
-  

@@ -1,0 +1,12 @@
+<template>
+  <ul>
+    <li click.delegate="addNewTodo()" class="todo">
+      Add Todo
+      <i class="fa fa-plus green-text" aria-hidden="true"></i>
+    </li>
+    <li click.delegate="editTodo($index)" class="todo" repeat.for="todo of todos">
+      ${todo}
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </li>
+  </ul>
+</template>

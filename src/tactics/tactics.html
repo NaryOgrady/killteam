@@ -1,3 +1,24 @@
 <template>
-  <h2>hey fool!</h2>
+  <style>
+    .green-text {
+      color: green;
+    }
+
+    .todo {
+      border: 1px solid grey;
+      padding: 10px;
+      width: 150px;
+      color: #efefef;
+    }
+  </style>
+
+  <require from="./todo-list/todo-list"></require>
+
+  <div if.bind="isAddingTodo || isEditingTodo">
+    <input type="text" value.bind="todoText" placeholder="Tyep new todo.">
+    <button if.bind='isEditingTodo' click.delegate="saveEdit()">Save Edit</button>
+    <button if.bind='isAddingTodo' click.delegate="saveTodo()">Save</button>
+  </div>
+  <div></div>
+  <todo-list></todo-list>
 </template>
