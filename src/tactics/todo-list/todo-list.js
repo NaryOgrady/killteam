@@ -1,13 +1,22 @@
+import { inject } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+
+@inject(EventAggregator)
 export class TodoList {
-  constructor() {
+  constructor(eventAggregator) {
     this.status = '';
     this.todos = ['example 1', 'example 2'];
+    this.ea = eventAggregator;
+  }
+
+  bind() {
+    this.ea.subscribe('save todo', newTodo => {
+      this.todos.push(newTodo);
+    });
   }
 
   addNewTodo() {
-    this.isAddingTodo = true;
-    this.isEditingTodo = false;
-    this.todoText = '';
+    this.ea.publish('new todo');
   }
 
   editTodo(index) {

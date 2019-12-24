@@ -1,16 +1,26 @@
+import { inject } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+
+@inject(EventAggregator)
 export class Tactics {
-  constructor() {
+  constructor(eventAggregator) {
     this.isAddingTodo = false;
     this.isEditingTodo = false;
     this.editIndex = 0;
     this.todoText = '';
-    this.todos = ['example 1', 'example 2'];
+    this.ea = eventAggregator;
+  }
+
+  bind() {
+    this.ea.subscribe('new todo', () => {
+      this.isAddingTodo = true;
+      this.isEditingTodo = false;
+      this.todoText = '';
+    });
   }
 
   saveTodo() {
-    this.todos.push(this.todoText);
-    this.todoText = '';
-    this.isAddingTodo = false;
+    this.ea.publish('save todo', this.todoText);
   }
 
   saveEdit() {
